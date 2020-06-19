@@ -1,0 +1,14 @@
+version: 1.0
+shards:
+  http_proxy:
+    github: mamantoha/http_proxy
+    commit: 04ad6d35c7c2cfb4fcd5e8f3a5c5a1de43ca9d4e
+
+  pool:
+    github: watzon/pool
+    version: 0.3.0
+
+  tourmaline:
+    github: protoncr/tourmaline
+    commit: a30026553107e6563e9c19e495b7be4acd84c908
+

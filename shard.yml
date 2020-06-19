@@ -1,0 +1,18 @@
+name: bulgakkebot
+version: 0.1.0
+
+authors:
+  - bulgakke <vvp835@yandex.ru>
+
+targets:
+  bulgakkebot:
+    main: src/bulgakkebot.cr
+
+dependencies:
+  tourmaline:
+    github: protoncr/tourmaline
+    branch: master    
+
+crystal: 0.35.1
+
+license: MIT
