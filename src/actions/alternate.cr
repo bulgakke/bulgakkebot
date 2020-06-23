@@ -1,5 +1,7 @@
 module Actions
   def alternate(text : String)
+    return text if text.size < 1
+    
     input = text.downcase.chars
     output = [] of Char
     k = 1

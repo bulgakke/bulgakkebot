@@ -11,6 +11,15 @@ class BulgakkeBot < Tourmaline::Client
     end
   end
 
+  @[Command("swaston")]
+  def swastonize(ctx)
+    if ctx.text.size <= 10
+      ctx.message.reply(Actions.swastonize(ctx.text), parse_mode: "MarkdownV2")
+    else
+      ctx.message.reply("Your text is too long")
+    end
+  end
+
   @[Command("duel")]
   def duel_invite(ctx)
     unless ctx.message.reply_message
@@ -57,6 +66,34 @@ class BulgakkeBot < Tourmaline::Client
     end
   end
 
+  @[Command("run_code_rb")]
+  def run_code_rb(ctx)
+    Tools.must_be_owner(ctx) do 
+      if ctx.message.reply_message
+        code = ctx.message.reply_message.not_nil!.text
+      else
+        code = ctx.text
+      end
+
+      result = code ? Actions.run_code_rb(code) : "Something went wrong"
+      ctx.message.reply("```\n#{result}```", parse_mode: ParseMode::MarkdownV2)
+    end
+  end
+
+  @[Command("run_code_cr")]
+  def run_code_cr(ctx)
+    Tools.must_be_owner(ctx) do 
+      if ctx.message.reply_message
+        code = ctx.message.reply_message.not_nil!.text
+      else
+        code = ctx.text
+      end
+
+      result = code ? Actions.run_code_cr(code) : "Something went wrong"
+      ctx.message.reply("```\n#{result}```", parse_mode: ParseMode::MarkdownV2)
+    end
+  end
+
   @[Command("start")]
   def start(ctx)
     ctx.message.reply("Вечер в палату, пациенты!")
@@ -77,13 +114,6 @@ Source code: <a href='https://github.com/bulgakke/bulgakkebot'>Github</a>", pars
         text = Actions.alternate(target_text)
         target_message.reply(text)
       end
-    end
-  end
-
-  @[Command("greet")]
-  def greet(ctx)
-    ctx.message.from.try do |user|
-      ctx.message.reply("Hello, #{user.first_name}")
     end
   end
 end
