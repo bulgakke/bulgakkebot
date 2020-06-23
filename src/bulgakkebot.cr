@@ -59,8 +59,15 @@ class BulgakkeBot < Tourmaline::Client
 
   @[Command("start")]
   def start(ctx)
-    ctx.message.reply("Вечер в палату, пациенты! 
-    Made with <a href='https://tourmaline.dev/'>Tourmaline</a> in <a href='https://crystal-lang.org/'>Crystal</a>.", parse_mode: "HTML")
+    ctx.message.reply("Вечер в палату, пациенты!")
+  end
+
+  @[Command("about")]
+  def about(ctx)
+    ctx.message.reply("Language used: <a href='https://crystal-lang.org/'>Crystal</a> 
+Framework used: <a href='https://tourmaline.dev/'>Tourmaline</a>
+Easy step-by-step guide: <a href='https://youtu.be/dQw4w9WgXcQ'>YouTube</a>
+Source code: <a href='https://github.com/bulgakke/bulgakkebot'>Github</a>", parse_mode: "HTML")
   end
 
   @[Command("alternate")]
