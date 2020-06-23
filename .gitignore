@@ -4,3 +4,5 @@
 /.shards/
 *.dwarf
 /app-env
+/src/clear.cr
+/src/testbot.cr
