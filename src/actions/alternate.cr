@@ -1,5 +1,4 @@
 module Actions
-  extend self
   def alternate(text : String)
     input = text.downcase.chars
     output = [] of Char
